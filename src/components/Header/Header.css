@@ -1,0 +1,25 @@
+*{
+    font-family: Arial ,'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+}
+.container{
+    position:sticky;
+    top:0;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    width:100%;
+    z-index:999;
+    background-color: rgb(63, 102, 184);
+}
+
+.container > img{
+    object-fit: contain;
+    height:40px;
+    margin-left:10px; 
+}
+
+.nav-bar {
+    display:flex;
+    margin-right:10px;
+}
