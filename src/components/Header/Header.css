@@ -1,19 +1,20 @@
 *{
     font-family: Arial ,'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
 }
-.container{
+.header-container{
     position:sticky;
     top:0;
     display:flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 0;
+    padding: 15px 0;
     width:100%;
     z-index:999;
     background-color: rgb(63, 102, 184);
+    height: 28px;
 }
 
-.container > img{
+.header-container > img{
     object-fit: contain;
     height:40px;
     margin-left:10px; 

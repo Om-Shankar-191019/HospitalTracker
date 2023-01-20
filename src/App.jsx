@@ -7,7 +7,7 @@ import './App.css'
 
 const App = () => {
   return (
-    <div>
+    <div className='app-container'>
         <Header />
         <div className='mapping-box'>
             <Material />
