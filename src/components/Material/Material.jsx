@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './Material.css'
 const Material = () => {
   return (
-    <div>Material</div>
+    <div className='material-container'>Material</div>
   )
 }
 
