@@ -1,0 +1,15 @@
+.headerOption{
+    margin-right:14px;
+    padding-bottom: 4px;
+}
+
+.headerOption:hover{
+    border-bottom:2px solid white;
+}
+
+.headerOption > span {
+    color:white;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+}

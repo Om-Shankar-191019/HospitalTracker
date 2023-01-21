@@ -12,10 +12,12 @@ const center = {
   lng: -38.523
 };
 
+const libraries = 'places'
 const Map = () => {
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY
+        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAP_API_KEY,
+        libraries
       })
 
       const [map, setMap] = React.useState(null)
@@ -42,8 +44,12 @@ const Map = () => {
         zoom={10}
         onLoad={onLoad}
         onUnmount={onUnmount}
+        options={{
+            fullscreenControl:false,
+            zoomControl:false
+        }}
       >
-       
+       <Marker position={center}/>
       </GoogleMap>
     </div>
   )
