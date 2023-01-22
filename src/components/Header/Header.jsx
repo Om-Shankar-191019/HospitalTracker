@@ -11,7 +11,7 @@ const Header = () => {
           <HeaderOption route="/about" title="About" />
           <HeaderOption route="/tophospitals" title="Top Hospitals" />
           <HeaderOption route="/blog" title="Blog" />
-          <Avatar alt="me" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" />
+          <Avatar style={{cursor:'pointer'}} alt="me" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60" />
         </div>
     </div>
   )

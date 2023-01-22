@@ -17,11 +17,11 @@
 .header-container > img{
     object-fit: contain;
     height:40px;
-    margin-left:10px; 
+    margin-left:14px; 
 }
 
 .nav-bar {
     display:flex;
-    margin-right:10px;
+    margin-right:14px;
     align-items: center;
 }
