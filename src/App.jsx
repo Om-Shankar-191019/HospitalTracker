@@ -1,5 +1,8 @@
 import React,{ useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import { selectUser } from './features/loginSlice';
 import Header from './components/Header/Header';
 import About from './components/Header/About';
 import TopHospitals from './components/Header/TopHospitals';
@@ -9,11 +12,12 @@ import Login from './components/Login';
 import './App.css'
 
 const App = () => {
-  const [loginFlag, setLoginFlag] = useState(false);
+
+  const user = useSelector(selectUser);
   return (
     <>
       {
-        !loginFlag ? <Login /> : 
+        !user ? <Login /> : 
         <div className='app-container'>
           <Header />
           <Routes>

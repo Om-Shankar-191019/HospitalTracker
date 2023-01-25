@@ -1,3 +1,4 @@
+
 *{
     margin:0;
     padding:0;
@@ -10,7 +11,7 @@
     justify-content:center;
     align-items: center;
     font-family:arial;
-    background-image:url('https://www.thestatesman.com/wp-content/uploads/2020/04/googl_ED.jpg');
+    background-image:url('../assets/loginBackgrounde.jpg');
     background-position:center;
     background-repeat: no-repeat;
     background-color:#1575a7;
@@ -20,7 +21,7 @@
 .login-form-wrapper{
     flex:0.55;
     border-radius:5px;
-    box-shadow:0px 0px 20px #cfd1d4;
+    box-shadow:0px 0px 20px 1px rgb(86, 84, 84);
     /* height:80%; */
     width:100%;
     background-color:white;

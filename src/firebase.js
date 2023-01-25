@@ -3,12 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDKFiP6TyAFvTH7d8ds_up35gBWWQEpbYA",
-    authDomain: "hospital-tagging.firebaseapp.com",
-    projectId: "hospital-tagging",
-    storageBucket: "hospital-tagging.appspot.com",
-    messagingSenderId: "784757280374",
-    appId: "1:784757280374:web:9c82dbf011c8c1078f1957"
+    apiKey: "AIzaSyACjIjgBi5DIHtyM4b6T071M4q8bItmUIQ",
+    authDomain: "hospital-tracker-2e2da.firebaseapp.com",
+    projectId: "hospital-tracker-2e2da",
+    storageBucket: "hospital-tracker-2e2da.appspot.com",
+    messagingSenderId: "939773989170",
+    appId: "1:939773989170:web:3a7b4a2609315d0b7bc72b",
+    measurementId: "G-J0EVTQBF1M"
   };
 
 // Initialize Firebase

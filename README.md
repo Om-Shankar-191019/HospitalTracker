@@ -13,4 +13,6 @@ login functionality using redux firebase
     install react-redux , @react-redux toolkit
     set up redux -- app(store), features(loginSlice) , index(provider)
     firebase.js config
-    login.js connect firebase redux and render 
+    login.js connect firebase redux and render -- createEmail/pass, login, signinwithGoogle 
+    app.js conditional rendering login.js based on the user info from redux store.
+    
