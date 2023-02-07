@@ -1,0 +1,71 @@
+.about-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 59px);
+    /* border:3px solid red; */
+    background-image: url("https://media.istockphoto.com/id/956787000/photo/hospital-navigation-point.jpg?s=612x612&w=0&k=20&c=UXKKg8SUPus7OHZcSNN2DIFjCoJZ6EhNJeK5rWnsm6c=");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+.left-column{
+    /* flex:0.5; */
+    width:50%;
+    margin-left: 20px;
+    margin-right: 25px; 
+    border-radius: 4px;
+    background-color: white;
+    padding:30px;
+    box-shadow: 0px 0px 20px gray;
+    /* border:1px solid red; */
+}
+
+.left-column > h1 {
+    font-size: 3rem;
+}
+
+.left-column > p {
+    font-style: arial;
+    font-size: 1.1rem;
+    margin-top:1rem;
+    line-height: 1.5rem;
+    
+}
+.right-column{
+    /* flex:0.5; */
+    width:50%;
+    margin-left: 25px;
+    margin-right: 20px; 
+    /* border:1px solid red; */
+    text-align: right;
+    border-radius: 4px;
+    
+}
+
+.right-column > img{
+    object-fit: cover;
+    height: 60vh;
+    width:66%;
+    border-radius: 4px;
+    box-shadow: 0px 0px 20px gray;
+    
+}
+@media screen and (max-width: 760px) {
+        /* .left-column{
+           width:90%;
+            margin-top:100%;
+        }
+        .right-column{
+            text-align: center;
+        }
+
+        .about-container{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding:40px;
+            
+        } */
+    }

@@ -1,0 +1,37 @@
+.reviews-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-review{
+    position:fixed;
+    bottom:24px;
+    right:16%;
+    border-radius: 50%;
+    background-color:rgb(63, 102, 184);
+    border:1px solid white;
+    box-shadow: 0 0rem 3rem 0.3rem rgba(0, 0, 0, 0.1);
+    transform: translate3d(0,-5px,0);
+    cursor: pointer;
+    transition:all 0.3s ease;
+    animation:animateDown infinite 1.5s;
+}
+
+
+
+@keyframes animateDown{
+    0%,20%,50%,80%,100%{
+      transform:translateY(0);
+    }
+  
+    40% {
+      transform:translateY(5px);
+    }
+  
+    60% {
+      transform:translateY(3px);
+    }
+  }
+
+  

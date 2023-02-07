@@ -1,4 +1,10 @@
 .material-container{
     flex:0.3;
-
+    height: calc(100vh - 58px);
+    /* border:2px solid red; */
+    
+}
+.hospitalPiece-wrapper{
+    overflow: scroll;
+    height: calc(100vh - 157px);
 }

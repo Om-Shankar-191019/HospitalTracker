@@ -1,0 +1,106 @@
+
+  .hospital-card {
+    background: #fff;
+    padding: 0px;
+    margin-left:60px;
+    margin-right:60px;
+    margin-bottom: 50px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 2px 2px 20px rgba(128, 128, 128, 0.281);
+    display: flex;
+    transition:all 0.3s ease;
+    /* border:1px solid red; */
+  }
+  .hospital-card:hover{
+    transform: translate3d(0,-5px,0);
+    box-shadow: 0 2rem 5rem 0 rgba(0,0,0,.1);
+  }
+  .hospital-card:first-child {
+    margin-top: 30px;
+  }
+  .hospital-card:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  .hospital-card:last-child {
+    margin-bottom: 130px;
+  }
+  .hospital-card .left {
+    /* flex: 1; */
+    width:45%;
+    /* height:250px; */
+    /* border:1px solid red; */
+  }
+  .hospital-card .left img {
+    /* height: 250px; */
+    object-fit: cover;
+    height: 100%;
+    width:100%;
+    border-radius: 4px;
+  
+  }
+  .hospital-card .right {
+    /* position: relative;
+    flex: 10; */
+    display: flex;
+    flex-direction: column;
+    width:55%;
+  }
+  .hospital-card .title {
+    padding: 15px 20px;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top:10px;
+  }
+  .hospital-card .description {
+    margin-top: 5px;
+    padding: 0 20px;
+    font-size: 14px;
+    color:gray;
+  }
+  .hospital-card .address {
+    margin-top: 15px;
+    padding: 0 20px;
+    font-size: 16px;
+    color:rgba(5, 97, 22, 0.664)
+  }
+  .hospital-card .establish, .beds {
+    margin-top: 6px;
+    padding: 0 20px;
+    font-size: 12px;
+  }
+  .website {
+    /* position: absolute; */
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+  }
+
+  .website button {
+    font-size: 15px;
+    padding: 7px 10px;
+    text-shadow: none;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+    color:rgba(109, 8, 8, 0.736);
+    cursor:pointer;
+    transition:all 0.4s ease;
+    margin-bottom:8px;
+  }
+
+  .website a{
+    text-decoration: none;
+    color:rgba(109, 8, 8, 0.736);
+    transition:all 0.4s ease;
+  }
+
+  .website button:hover {
+    background-color:  rgb(63, 102, 184);
+    color:white;
+  }
+  

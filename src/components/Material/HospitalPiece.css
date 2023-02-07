@@ -1,0 +1,29 @@
+.hospitalPiece-container{
+    display:flex;
+    align-items: center;
+    border-bottom:1px solid rgba(128, 128, 128, 0.453);
+    
+    /* border:1px solid red; */
+    padding:14px 10px;
+    cursor: pointer;
+    transition:all 0.3s ease;
+}
+
+.hospitalPiece-container:hover{
+    transform: translate3d(0,-5px,0);
+    box-shadow: 0 2rem 5rem 0 rgba(0,0,0,.2);
+}
+
+.hospitalPiece-container img{
+    object-fit: cover;
+    height: 26px;
+    margin-right: 16px;
+}
+
+.hospitalPiece-container p{
+    font-size: 0.9rem;
+    color:rgba(0, 0, 0, 0.903);
+}
+
+
+

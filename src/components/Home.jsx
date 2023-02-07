@@ -1,12 +1,12 @@
 import React from 'react'
 import Material from './Material/Material'
-import Map from './Map/Map'
-
+import Mapping from './Map/Mapping'
+import Mapbox from './Map/Mapbox'
 const Home = () => {
   return (
     <div style={{display:'flex'}}>
         <Material />
-        <Map />
+        <Mapping />
     </div>
   )
 }
