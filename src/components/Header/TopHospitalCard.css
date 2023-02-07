@@ -12,10 +12,10 @@
     transition:all 0.3s ease;
     /* border:1px solid red; */
   }
-  .hospital-card:hover{
+  /* .hospital-card:hover{
     transform: translate3d(0,-5px,0);
     box-shadow: 0 2rem 5rem 0 rgba(0,0,0,.1);
-  }
+  } */
   .hospital-card:first-child {
     margin-top: 30px;
   }

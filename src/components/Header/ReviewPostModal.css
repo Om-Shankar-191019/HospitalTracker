@@ -1,6 +1,77 @@
-.rating-container{
-    width: 200px;
-    display: flex;
+.reviewPostModal-container{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.68);
+    z-index:999;
+    display:flex;
+    justify-content: center;
     align-items: center;
+}
+
+.reviewPostModal-card{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    padding:18px;
+    border-radius:4px;
+    height:295px;
+    width:440px;
+}
+.reviewPost-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:1px solid gray;
+}
+
+.reviewPost-top p{
+    font-weight: bold;
+}
+.reviewPost-top button{
+    margin-bottom:8px;
+}
+.reviewPost-top button img{
+    object-fit: cover;
+    height:24px;
+    padding:8px;
+    cursor:pointer;
+}
+
+.rating-container{
+    margin-top:14px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
     color:black;
+}
+
+.reviewTextArea{
+    margin-top:14px;
+    width:100%;
+    min-height:100px;
+    resize:none;
+    outline:none;
+    height:130px;
+    border:none;
+    /* border-bottom:1px solid gray; */
+}
+
+.add-review-button{
+    margin:20px;
+    padding:10px;
+    background-color:var(--app-color) ;
+    color:white;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+@media screen and (max-width:600px) {
+    .reviewPostModal-card{
+        width:80vw;
+    }
 }

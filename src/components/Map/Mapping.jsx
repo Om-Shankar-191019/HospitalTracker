@@ -8,10 +8,12 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { putInfo } from '../../features/hospitalSlice';
+
 import './Mapping.css'
 
 const Mapping = () => {
   const searchCategory = useSelector((state) => state.hospital.category);
+  const hospitalInfo = useSelector((state) => state.hospital.info);
   const dispatch = useDispatch();
   // const [userLocation,setUserLocation] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -184,11 +186,10 @@ const Mapping = () => {
          
         </div>
         <Marker longitude={78.014} latitude={21.780} color="red" />
-        {currentHospitals && 
-          currentHospitals.map((item) => 
-          <Marker key={item.id} longitude={parseFloat(item.lon)} latitude={ parseFloat(item.lat)} color="red" />
-        ) 
-        } 
+        {currentHospitals && <Marker longitude={currentHospitals[0].lon} latitude={currentHospitals[0].lat} color="red" />}
+        {currentHospitals && <Marker longitude={currentHospitals[1].lon} latitude={currentHospitals[1].lat} color="red" />}
+        {currentHospitals && <Marker longitude={currentHospitals[2].lon} latitude={currentHospitals[2].lat} color="red" />}
+        {currentHospitals && <Marker longitude={currentHospitals[3].lon} latitude={currentHospitals[3].lat} color="red" />}
       </Map>  
     </div>
   );

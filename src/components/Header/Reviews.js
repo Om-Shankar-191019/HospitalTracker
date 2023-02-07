@@ -7,9 +7,9 @@ const Reviews = () => {
   return (
     <div className='reviews-container'>
         <button className='add-review' >
-            <AddIcon className='addIcon-symbol'/>
+            <AddIcon style={{ fontSize: '38px' }} />
         </button>
-        <ReviewPostModal /> 
+        {/* <ReviewPostModal />  */}
         <ReviewCard />
         <ReviewCard />
         <ReviewCard />

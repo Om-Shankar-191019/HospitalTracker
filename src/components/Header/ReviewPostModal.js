@@ -11,42 +11,33 @@ const ReviewPostModal = () => {
     console.log(ratingValue)
   return (
     <div  className='reviewPostModal-container'>
-        <div>
-            <p>Make a Review</p>
-            <button><img src="https://cdn-icons-png.flaticon.com/128/2961/2961937.png" alt="" /></button>
-        </div>
-        <div className='rating-container'>
-        <Box
-            sx={{
-                '& > legend': { mt: 2 },
-            }}
-        >
-            <Typography component="legend">Controlled</Typography>
-            <Rating
-                name="simple-controlled"
-                value={ratingValue}
-                onChange={(event, newValue) => {
-                    setRatingValue(newValue);
-                }}
-            />
-            <AgricultureIcon />
-            <AgricultureIcon />
-            <Box sx={{ display: 'flex' }}>
-      <CircularProgress />
-      
-    </Box>
+        <div className='reviewPostModal-card'>
+            <div className='reviewPost-top'>
+                <p>Make a Review</p>
+                <button><img src="https://cdn-icons-png.flaticon.com/128/2961/2961937.png" alt="" /></button>
+            </div>
+            <div className='rating-container'>
+                <Rating
+                    name="simple-controlled"
+                    value={ratingValue}
+                    onChange={(event, newValue) => {
+                        setRatingValue(newValue);
+                    }}
+                />
 
-    <AcUnitIcon />
-        </Box>
+                <textarea 
+                    className='reviewTextArea' 
+                    placeholder='Write something about us' 
+                    value={reviewText}
+                    onChange={(e) => setReviewText(e.target.value)}
+                    autoFocus={true}
+                >
+                </textarea>
+
+                <button className='add-review-button'>Add review</button>
+            </div>
         </div>
-        <textarea 
-            className='reviewTextArea' 
-            placeholder='Write something about us' 
-            value={reviewText}
-            onChange={(e) => setReviewText(e.target.value)}
-            autoFocus
-        >
-        </textarea>
+        
     </div>
   )
 }
