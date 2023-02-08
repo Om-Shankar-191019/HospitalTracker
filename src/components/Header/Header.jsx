@@ -15,7 +15,7 @@ const Header = () => {
           <HeaderOption route="/about" title="About" />
           <HeaderOption route="/tophospitals" title="Top Hospitals" />
           <HeaderOption route="/reviews" title="Reviews" />
-          <HeaderOption route="/blog" title="Blog" />
+          <HeaderOption route="/blog" title="Blogs" />
           <Avatar style={{cursor:'pointer'}} alt="me" src={user?.photoURL}>{user?.displayName[0].toUpperCase()}</Avatar>
         </div>
     </div>

@@ -1,0 +1,93 @@
+.blogPostModal-container{
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.68);
+    z-index:999;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogPostModal-card{
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+    padding:20px;
+    border-radius:4px;
+    /* height:295px; */
+    width:50vw;
+}
+.blogPost-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border-bottom:1px solid gray; */
+}
+
+.blogPost-top p{
+    font-weight: bold;
+}
+.blogPost-top button{
+    margin-bottom:12px;
+}
+.blogPost-top button img{
+    object-fit: cover;
+    height:12px;
+    padding:8px;
+    cursor:pointer;
+}
+.blogPostModal-image-box{
+    margin-bottom:16px;
+    width:100%;
+}
+
+.blogPostModal-image-box img{
+    object-fit: cover;
+    width:100%;
+    height:200px;
+    border-radius: 4px;
+
+}
+.blogPostModal-title{
+    border:2px solid black;
+    width:100%;
+}
+
+.blogTextArea{
+    margin-top:14px;
+    width:100%;
+    min-height:150px;
+    resize:none;
+    outline:none;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    /* height:130px; */
+    border:none;
+    /* border:1px solid gray; */
+}
+
+.btns-container{
+    margin-top:14px;
+    /* margin-bottom: 12px; */
+    display: flex;
+    justify-content: space-between;
+}
+.add-blog-button{
+    /* margin:20px; */
+    padding:10px;
+    background-color:var(--app-color) ;
+    color:white;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+@media screen and (max-width:600px) {
+    .blogPostModal-card{
+        width:80vw;
+    }
+}

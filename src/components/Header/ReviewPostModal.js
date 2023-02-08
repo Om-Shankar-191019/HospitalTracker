@@ -11,6 +11,18 @@ const ReviewPostModal = ({showReviewPostModal , handleClose }) => {
     const [reviewText,setReviewText] = useState("");
     // console.log(ratingValue)
     const user = useSelector((state) => state.login.user);
+    const getDateTime = () =>{
+        let today = new Date();
+        let dateTime =  today.toLocaleString();
+        return dateTime;
+      }
+
+      const getDateOnly = () =>{
+        let today = new Date();
+        var options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        var onlyDate = today.toLocaleDateString('en-GB', options).replace(/\//g, '-');  
+        return onlyDate;
+      }
     const sendReviewPost = async (e) =>{
         e.preventDefault();
         try {
@@ -19,7 +31,8 @@ const ReviewPostModal = ({showReviewPostModal , handleClose }) => {
               email:user.email,
               rating:ratingValue,
               review:reviewText,
-              createdAt: Timestamp.fromDate(new Date())
+              createdAt: getDateTime(),
+              date:getDateOnly(),
             });
             // console.log("Document written with ID: ", docRef.id);
           } catch (e) {

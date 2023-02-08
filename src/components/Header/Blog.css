@@ -1,0 +1,25 @@
+.blog-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 58px);
+    overflow: scroll;
+    
+}
+
+.add-blog-plus{
+    position:fixed;
+    bottom:24px;
+    right:16%;
+    border-radius: 50%;
+    background-color:rgb(63, 102, 184);
+    border:1px solid white;
+    box-shadow: 0 0rem 3rem 0.3rem rgba(0, 0, 0, 0.1);
+    transform: translate3d(0,-5px,0);
+    cursor: pointer;
+    color:white;
+    padding:6px;
+    /* font-size: 130px; */
+    transition:all 0.3s ease;
+    animation:animateDown infinite 1.5s;
+}

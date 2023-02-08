@@ -3,7 +3,7 @@ import Rating from '@mui/material/Rating';
 import Avatar from '@mui/material/Avatar';
 import { useSelector } from 'react-redux';
 import './ReviewCard.css'
-const ReviewCard = forwardRef(({name,rating,review},ref) => {
+const ReviewCard = forwardRef(({name,rating,review,date},ref) => {
   const user = useSelector((state) => state.login.user);
   return (
     <div ref={ref} className='reviewCard-container'>
@@ -14,7 +14,7 @@ const ReviewCard = forwardRef(({name,rating,review},ref) => {
                 <Avatar style={{cursor:'pointer'}} alt="me" src={user?.photoURL}>{user?.displayName[0].toUpperCase()}</Avatar>
             <div className='reviewCard-name-box'>
                 <p>{name}</p>
-                
+                <span>{date}</span>
             </div>
           </div>
           <Rating name="read-only" value={rating} readOnly />
