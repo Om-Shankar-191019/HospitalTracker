@@ -17,7 +17,7 @@
     background-color: white;
     padding:18px;
     border-radius:4px;
-    height:295px;
+    /* height:295px; */
     width:440px;
 }
 .reviewPost-top{
@@ -54,13 +54,13 @@
     min-height:100px;
     resize:none;
     outline:none;
-    height:130px;
+    /* height:130px; */
     border:none;
     /* border-bottom:1px solid gray; */
 }
 
 .add-review-button{
-    margin:20px;
+    /* margin:20px; */
     padding:10px;
     background-color:var(--app-color) ;
     color:white;

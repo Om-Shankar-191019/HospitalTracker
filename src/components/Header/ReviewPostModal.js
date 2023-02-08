@@ -1,44 +1,69 @@
 import React,{useState} from 'react'
 import Rating from '@mui/material/Rating';
-import { Box, Typography } from '@mui/material'
-import AgricultureIcon from '@mui/icons-material/Agriculture';
-import CircularProgress from '@mui/material/CircularProgress';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from '../../firebase';
+import { useSelector } from 'react-redux';
+import { serverTimestamp } from "firebase/firestore";
+import { Timestamp} from '@firebase/firestore';
 import './ReviewPostModal.css'
-const ReviewPostModal = () => {
+const ReviewPostModal = ({showReviewPostModal , handleClose }) => {
     const [ratingValue,setRatingValue] = useState(2);
     const [reviewText,setReviewText] = useState("");
-    console.log(ratingValue)
+    // console.log(ratingValue)
+    const user = useSelector((state) => state.login.user);
+    const sendReviewPost = async (e) =>{
+        e.preventDefault();
+        try {
+            const docRef = await addDoc(collection(db, "reviewPost"), {
+              name:user.displayName,
+              email:user.email,
+              rating:ratingValue,
+              review:reviewText,
+              createdAt: Timestamp.fromDate(new Date())
+            });
+            // console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+          setReviewText("");
+          handleClose(e);
+    }
+
   return (
-    <div  className='reviewPostModal-container'>
-        <div className='reviewPostModal-card'>
-            <div className='reviewPost-top'>
-                <p>Make a Review</p>
-                <button><img src="https://cdn-icons-png.flaticon.com/128/2961/2961937.png" alt="" /></button>
-            </div>
-            <div className='rating-container'>
-                <Rating
-                    name="simple-controlled"
-                    value={ratingValue}
-                    onChange={(event, newValue) => {
-                        setRatingValue(newValue);
-                    }}
-                />
-
-                <textarea 
-                    className='reviewTextArea' 
-                    placeholder='Write something about us' 
-                    value={reviewText}
-                    onChange={(e) => setReviewText(e.target.value)}
-                    autoFocus={true}
-                >
-                </textarea>
-
-                <button className='add-review-button'>Add review</button>
-            </div>
-        </div>
+    <>
+        {showReviewPostModal === "open" &&
         
-    </div>
+        <div  className='reviewPostModal-container'>
+            <div className='reviewPostModal-card'>
+                <div className='reviewPost-top'>
+                    <p>Make a Review</p>
+                    <button onClick={handleClose} ><img src="https://cdn-icons-png.flaticon.com/128/2961/2961937.png" alt="" /></button>
+                </div>
+                <div className='rating-container'>
+                    <Rating
+                        name="simple-controlled"
+                        value={ratingValue}
+                        onChange={(event, newValue) => {
+                            setRatingValue(newValue);
+                        }}
+                    />
+
+                    <textarea 
+                        className='reviewTextArea' 
+                        placeholder='Write something about us' 
+                        value={reviewText}
+                        onChange={(e) => setReviewText(e.target.value)}
+                        autoFocus={true}
+                    >
+                    </textarea>
+
+                    <button onClick={sendReviewPost} className='add-review-button'>Add review</button>
+                </div>
+            </div>
+            
+        </div>
+        }
+    </>
   )
 }
 
