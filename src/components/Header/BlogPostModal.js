@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../firebase';
+import { uploadBytes,ref,getDownloadURL } from "firebase/storage";
+import { storage } from '../../firebase';
 import { useSelector } from 'react-redux';
 
 
@@ -11,6 +13,14 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
     const [shareImage,setShareImage] = useState("");
     const user = useSelector((state) => state.login.user);
 
+    const uploadImageFile = async () =>{
+      if (!shareImage) return;
+      const imageRef = ref(storage, `blogPostImages/${shareImage.name}${getDateOnly()}`);
+      await uploadBytes(imageRef,shareImage).then((snapshot) =>{
+        console.log(" upload bytes ")
+      })
+    }
+
     const handleShareImage = (e) =>{
       const image = (e.target.files[0]);
       // console.log(image)
@@ -20,6 +30,7 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
       }
 
       setShareImage(image);
+      
     }
 
     const getDateTime = () =>{
@@ -36,11 +47,15 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
       }
     const sendBlogPost = async (e) =>{
         e.preventDefault();
+        
         try {
+            await uploadImageFile();
+            console.log(" not awaited: ,")
             const docRef = await addDoc(collection(db, "blogPost"), {
               name:user.displayName,
               blogText:blogText,
               title:blogTitle,
+              image:`${shareImage && shareImage.name}${shareImage && getDateOnly()}`,
               createdAt: getDateTime(),
               date:getDateOnly(),
             });
@@ -49,7 +64,10 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
             console.error("Error adding document: ", e);
           }
           setBlogText("");
+          setBlogTitle("");
+          setShareImage("");
           handleClose(e);
+
     }
 
   return (
