@@ -4,7 +4,7 @@ import './TopHospitalCard.css'
 
 const TopHospitalCard = ({name,description,address,establish,beds,website_url,image}) => {
   return (
-    <div className='hospital-card'>
+    <div  className='hospital-card'>
       <div className='left'>
           <img alt='hospital-poster' src={image} />
       </div>

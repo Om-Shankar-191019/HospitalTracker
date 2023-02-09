@@ -42,6 +42,7 @@
 .blogPostModal-image-box{
     margin-bottom:16px;
     width:100%;
+    /* border:1px solid red; */
 }
 
 .blogPostModal-image-box img{

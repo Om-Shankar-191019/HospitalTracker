@@ -3,12 +3,25 @@ import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../firebase';
 import { useSelector } from 'react-redux';
 
+
 import './BlogPostModal.css'
 const BlogPostModal = ({showBlogPostModal , handleClose }) => {
     const [blogText,setBlogText] = useState("");
     const [blogTitle,setBlogTitle] = useState("");
-    // console.log(ratingValue)
+    const [shareImage,setShareImage] = useState("");
     const user = useSelector((state) => state.login.user);
+
+    const handleShareImage = (e) =>{
+      const image = (e.target.files[0]);
+      // console.log(image)
+      if(image === "" || image === undefined){
+        alert(`not an image , the file is a ${typeof image}`);
+        return;
+      }
+
+      setShareImage(image);
+    }
+
     const getDateTime = () =>{
         let today = new Date();
         let dateTime =  today.toLocaleString();
@@ -49,7 +62,11 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
                     <p>Write a blog</p>
                     <button onClick={handleClose} ><img src="https://cdn-icons-png.flaticon.com/128/2961/2961937.png" alt="" /></button>
                 </div>
-                <div className='blogPostModal-image-box'><img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG9zcGl0YWx8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60" alt='' /></div>
+                <div className='blogPostModal-image-box'>
+                  <input type="file" accept="image/gif, image/jpeg, image/png" name="image" id="shareImageInput" style={{display:"none"}} onChange={handleShareImage}/>
+                  {/* <p><label htmlFor='shareImageInput' >Select an image to share</label></p> */}
+                  {shareImage && <img src={URL.createObjectURL(shareImage)} />}
+                </div>
                 <div style={{display:'flex',justifyContent:'center'}}><input value={blogTitle} onChange={(e) => setBlogTitle(e.target.value)} className='input blogPostModal-title' type='text' placeholder=' TITLE ...'></input></div>
                 <div>
                     <textarea 
@@ -64,13 +81,14 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
                 
                 <div className='btns-container'>
                     <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-                        <div style={{marginRight:"10px"}}  className='add-blog-button'><input type='file' /></div>
-                        <button style={{marginRight:"10px"}}  className='add-blog-button'>Img Link</button>
-                        <button style={{marginRight:"10px"}}  className='add-blog-button'>Video Link</button>
+                        {/* <div style={{marginRight:"10px"}}  className='add-blog-button'><input type='file' /></div> */}
+                        {/* <button style={{marginRight:"10px"}}  className='add-blog-button'>Img Link</button> */}
+                        {/* <button htmlFor='shareImageInput' style={{marginRight:"10px"}}  className='add-blog-button'>img</button> */}
+                        <p><label htmlFor='shareImageInput' className='add-blog-button' >img</label></p>
                     </div>
                     <button onClick={sendBlogPost} className='add-blog-button' disabled={!blogText ? true : false}>Publish</button>
                 </div>
-                
+                 
             </div>
         </div>
         }
