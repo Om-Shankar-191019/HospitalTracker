@@ -10,8 +10,10 @@ const BlogCard = ({title,name,date,blogText,image}) => {
   // console.log(" image in card in each iteration ,",image);
   useEffect(() =>{
     getDownloadURL(ref(storage,`blogPostImages/${image}`))
-    .then((url) => setImageUrl(url))
-    .catch((error) => console.log(error))
+    .then((url) => 
+      setImageUrl(url)
+    )
+    .catch((error) => setImageUrl(""))
   },[image])
 
   return (
@@ -19,10 +21,10 @@ const BlogCard = ({title,name,date,blogText,image}) => {
         <div className='blog-title'>
             <h2>{title}</h2>
         </div>
-        <div className='link-box'>
+        {/* <div className='link-box'>
             <a href="#">See image here</a>
             <a href="#">See video here</a>
-        </div>
+        </div> */}
         <div className='blog-image-box'>{imageUrl && <img src={imageUrl} alt='' />}</div>
         <div className='blogCard-name-box' >
             <p>Author : {name}</p>

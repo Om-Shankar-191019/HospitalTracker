@@ -4,20 +4,23 @@ import { db } from '../../firebase';
 import { uploadBytes,ref,getDownloadURL } from "firebase/storage";
 import { storage } from '../../firebase';
 import { useSelector } from 'react-redux';
-
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 import './BlogPostModal.css'
 const BlogPostModal = ({showBlogPostModal , handleClose }) => {
     const [blogText,setBlogText] = useState("");
     const [blogTitle,setBlogTitle] = useState("");
     const [shareImage,setShareImage] = useState("");
+    const [loadingProgress,setLoadingProgress] = useState(true);
     const user = useSelector((state) => state.login.user);
 
     const uploadImageFile = async () =>{
       if (!shareImage) return;
       const imageRef = ref(storage, `blogPostImages/${shareImage.name}${getDateOnly()}`);
       await uploadBytes(imageRef,shareImage).then((snapshot) =>{
-        console.log(" upload bytes ")
+        // console.log(" upload bytes ")
+        setLoadingProgress(false);
       })
     }
 
@@ -47,10 +50,15 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
       }
     const sendBlogPost = async (e) =>{
         e.preventDefault();
-        
+        {loadingProgress &&  
+          <Box sx={{ display: 'flex',zIndex:'9999' }} >
+            <CircularProgress color="secondary"  />
+          </Box>  
+        }
+        handleClose(e);
         try {
             await uploadImageFile();
-            console.log(" not awaited: ,")
+            // console.log(" not awaited: ,")
             const docRef = await addDoc(collection(db, "blogPost"), {
               name:user.displayName,
               blogText:blogText,
@@ -66,7 +74,7 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
           setBlogText("");
           setBlogTitle("");
           setShareImage("");
-          handleClose(e);
+          
 
     }
 
