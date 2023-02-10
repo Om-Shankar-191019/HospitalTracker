@@ -14,7 +14,7 @@
 }
 
 .expanded{
-    height:300px ; 
+    height:250px ; 
     overflow: hidden;
 }
 
@@ -34,6 +34,21 @@
     color:rgba(0, 0, 0, 0.903);
 }
 
+.hospital-card-container{
+    /* border:1px solid red; */
+    width:100%;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:8px;
+}
+
+.flex-center p{
+    color:gray;
+}
 
 
 
