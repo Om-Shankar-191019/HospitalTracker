@@ -7,13 +7,14 @@ import Map,{Marker} from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { putInfo } from '../../features/hospitalSlice';
+import { putInfo,putCurrentPinToNull } from '../../features/hospitalSlice';
 
 import './Mapping.css'
 
 const Mapping = () => {
   const searchCategory = useSelector((state) => state.hospital.category);
   const hospitalInfo = useSelector((state) => state.hospital.info);
+  const currentPin = useSelector((state) => state.hospital.currentPin);
   const dispatch = useDispatch();
   // const [userLocation,setUserLocation] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
@@ -26,14 +27,21 @@ const Mapping = () => {
   });
 
   useEffect(() =>{
-    if(currentHospitals && currentHospitals.length > 0 ){
+    if(currentHospitals && currentHospitals.length > 0  && !currentPin){
       setViewState({
         latitude: currentHospitals[0].lat,
         longitude: currentHospitals[0].lon,
         zoom: 12,
       })
     }
-  },[currentHospitals])
+    else if( currentPin ){
+      setViewState({
+        latitude: currentPin.lat,
+        longitude: currentPin.lon,
+        zoom: 14,
+      })
+    }
+  },[currentHospitals,currentPin])
 
  
 
@@ -84,6 +92,7 @@ const Mapping = () => {
         return fetch(overpassUrl + "?data=" + query)
         .then((response) => response.json())
         .then((data) => {
+          dispatch(putCurrentPinToNull())
           setCurrentHospitals(data.elements);
           dispatch(putInfo(data.elements))
         })
@@ -132,8 +141,10 @@ const Mapping = () => {
       .then(response => response.json())
       .then(data => {
         const hospitals = data.elements
+        
         setCurrentHospitals(hospitals);
         dispatch(putInfo(hospitals))
+        dispatch(putCurrentPinToNull())
       })
       .catch(error => {
         alert(`Error fetching hospitals data:`, error);
@@ -186,10 +197,13 @@ const Mapping = () => {
          
         </div>
         <Marker longitude={78.014} latitude={21.780} color="red" />
-        {currentHospitals && <Marker longitude={currentHospitals[0].lon} latitude={currentHospitals[0].lat} color="red" />}
+        {currentPin &&
+           <Marker longitude={currentPin.lon} latitude={currentPin.lat} color="red" /> 
+        }
+        {/* {currentHospitals && <Marker longitude={currentHospitals[0].lon} latitude={currentHospitals[0].lat} color="red" />}
         {currentHospitals && <Marker longitude={currentHospitals[1].lon} latitude={currentHospitals[1].lat} color="red" />}
         {currentHospitals && <Marker longitude={currentHospitals[2].lon} latitude={currentHospitals[2].lat} color="red" />}
-        {currentHospitals && <Marker longitude={currentHospitals[3].lon} latitude={currentHospitals[3].lat} color="red" />}
+        {currentHospitals && <Marker longitude={currentHospitals[3].lon} latitude={currentHospitals[3].lat} color="red" />} */}
       </Map>  
     </div>
   );

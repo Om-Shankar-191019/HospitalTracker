@@ -1,0 +1,17 @@
+.home-container{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+@media screen and (max-width:768px) {
+    .home-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: scroll;
+        width:80%;
+        height: 200vh;
+        margin:0 auto;
+    }
+}

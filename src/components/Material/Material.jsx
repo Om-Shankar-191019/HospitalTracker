@@ -18,7 +18,7 @@ const Material = () => {
               key={item.id} 
               keyId={item.id} 
               expandedId={expandedId} 
-              onClick={() => setExpandedId(expandedId === item.id ? null : item.id)} 
+              onClick={() => setExpandedId(item.id)} 
               name={item.tags  ? item.tags.name ? item.tags.name : "clinic" : "clinic" }
               latitude={item.lat}
               longitude={item.lon} 

@@ -2,9 +2,18 @@
     flex:0.3;
     height: calc(100vh - 58px);
     /* border:2px solid red; */
-    
+
 }
 .hospitalPiece-wrapper{
     overflow: scroll;
     height: calc(100vh - 157px);
+}
+
+@media screen and (max-width:768px) {
+    .material-container{
+        /* flex:1; */
+        width:100%;
+        height: 50% !important;
+        /* display: none; */
+    }
 }

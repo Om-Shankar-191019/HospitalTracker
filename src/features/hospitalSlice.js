@@ -5,6 +5,7 @@ export const hospitalSlice = createSlice({
     initialState:{
         category:"city",
         info:null,
+        currentPin:null,
     },
     reducers:{
         putCategory:(state,action) =>{
@@ -12,9 +13,15 @@ export const hospitalSlice = createSlice({
         }, 
         putInfo:(state,action) =>{
             state.info = action.payload;
+        },
+        putCurrentPin:(state,action) =>{
+            state.currentPin = action.payload;
+        },
+        putCurrentPinToNull:(state) =>{
+            state.currentPin = null;
         }
     },
 });
 
-export  const {putCategory,putInfo} = hospitalSlice.actions;
+export  const {putCategory,putInfo,putCurrentPin,putCurrentPinToNull} = hospitalSlice.actions;
 export default hospitalSlice.reducer;

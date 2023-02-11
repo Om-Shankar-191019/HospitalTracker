@@ -1,0 +1,20 @@
+.sidebar-container{
+    display: flex;
+    flex-direction: column;
+    padding:30px;
+}
+
+.navTag-div{
+    margin:10px;
+    transition:all 0.3 ease;
+}
+
+.navTag-div:hover{
+    font-size: large;
+}
+.navTag-span{
+    color:var(--app-color);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+}

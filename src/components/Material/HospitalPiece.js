@@ -1,7 +1,9 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { putCurrentPin } from '../../features/hospitalSlice';
 import './HospitalPiece.css'
 const HospitalPiece = ({name,keyId,expandedId,onClick,latitude,longitude,tags}) => {
-
+  const dispatch = useDispatch();
   const clinicDialog = [
 
     "Get the care you deserve, right in your neighborhood.",
@@ -26,6 +28,10 @@ const HospitalPiece = ({name,keyId,expandedId,onClick,latitude,longitude,tags}) 
       return clinicDialog[index];
     }
 
+    const dispatchCurrentPin = () =>{
+      if(latitude && longitude)
+        dispatch(putCurrentPin({lat:latitude,lon:longitude}))
+    }
  
   return (
     <div className={`hospitalPiece-container ${expandedId === keyId ? "expanded" : ""}`} onClick={onClick}>
@@ -58,8 +64,8 @@ const HospitalPiece = ({name,keyId,expandedId,onClick,latitude,longitude,tags}) 
               <p>{longitude}</p>
             </div>
             <div style={{display:'flex',alignItems:'center',justifyContent:'space-around',marginTop:'18px'}}>
-              <button style={{marginRight:"10px"}}  className='add-blog-button'>Pin to map</button>
-              <button style={{marginRight:"10px"}}  className='add-blog-button'>Direction</button>
+              <button onClick={dispatchCurrentPin} style={{marginRight:"10px"}}  className='add-blog-button'>Pin to map</button>
+              {/* <button style={{marginRight:"10px"}}  className='add-blog-button'>Direction</button> */}
             </div>
             
 
