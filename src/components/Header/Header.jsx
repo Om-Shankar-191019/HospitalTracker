@@ -16,8 +16,10 @@ const Header = () => {
   const [isDrawerOpen,setIsDrawerOpen] = useState(false);
 
   useEffect(() =>{
-   
-      setActive(!active);
+    if(isDrawerOpen)
+      setActive(true);
+    else
+      setActive(false);
     
   },[isDrawerOpen])
 

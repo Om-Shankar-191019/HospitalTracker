@@ -1,6 +1,6 @@
 .blogCard-container{
     /* border:2px solid red; */
-    width:50vw;
+    width:60vw;
     display: flex;
     flex-direction: column;
     padding:35px 45px;
@@ -63,4 +63,24 @@
     color:rgb(71, 70, 70);
     font-size: 0.9rem;
     line-height: 1.2rem;
+}
+
+
+@media screen and (max-width:768px) {
+    
+    .blogCard-container{
+        width:80vw;
+        padding:20px 25px;
+    }
+    .blog-title{
+      font-size: 0.8rem;
+    }
+
+    .blog-image-box img{
+        height:220px;
+    }
+
+    .blogCard-name-box{
+        flex-wrap: wrap;
+    }
 }

@@ -104,3 +104,22 @@
     color:white;
   }
   
+  @media screen and (max-width:768px) {
+    .hospital-card{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hospital-card .left, .right{
+      width:90%;
+      margin:0 auto;
+    }
+    .hospital-card .right {
+      width:90%;
+      margin:0 auto;
+    }
+
+    .hospital-card .title{
+      font-size:18px;
+    }
+  }

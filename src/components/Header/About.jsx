@@ -1,4 +1,5 @@
 import React,{ useState, useEffect } from 'react'
+import logoImage from '../../assets/logo.png';
 import './About.css';
 
 const About = () => {
@@ -21,7 +22,7 @@ const About = () => {
         </p>
       </div>
       <div className="right-column">
-          <img src="https://static.planetminecraft.com/files/image/minecraft/project/2020/041/13140481-hospitalwallpaper_l.webp" alt="" />
+          <img src={logoImage} alt="" />
       </div>
 
     </div>

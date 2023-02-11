@@ -4,7 +4,7 @@
     align-items: center;
     height: calc(100vh - 59px);
     /* border:3px solid red; */
-    background-image: url("https://media.istockphoto.com/id/956787000/photo/hospital-navigation-point.jpg?s=612x612&w=0&k=20&c=UXKKg8SUPus7OHZcSNN2DIFjCoJZ6EhNJeK5rWnsm6c=");
+    /* background-image: url("https://media.istockphoto.com/id/956787000/photo/hospital-navigation-point.jpg?s=612x612&w=0&k=20&c=UXKKg8SUPus7OHZcSNN2DIFjCoJZ6EhNJeK5rWnsm6c="); */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -18,7 +18,7 @@
     border-radius: 4px;
     background-color: white;
     padding:30px;
-    box-shadow: 0px 0px 20px gray;
+    /* box-shadow: 0px 0px 20px gray; */
     /* border:1px solid red; */
 }
 
@@ -39,33 +39,44 @@
     margin-left: 25px;
     margin-right: 20px; 
     /* border:1px solid red; */
-    text-align: right;
+    text-align: center;
     border-radius: 4px;
     
 }
 
 .right-column > img{
     object-fit: cover;
-    height: 60vh;
+    /* height: 60vh; */
     width:66%;
     border-radius: 4px;
-    box-shadow: 0px 0px 20px gray;
+    /* box-shadow: 0px 0px 20px gray; */
     
 }
-@media screen and (max-width: 760px) {
-        /* .left-column{
-           width:90%;
-            margin-top:100%;
-        }
-        .right-column{
-            text-align: center;
-        }
-
+@media screen and (max-width: 768px) {
+    
         .about-container{
-            flex-direction: column;
+            display: flex;
+            flex-direction: column-reverse;
             align-items: center;
             justify-content: center;
             padding:40px;
-            
-        } */
+            overflow: scroll;
+        } 
+
+        .left-column{
+            width:95%;
+        }
+
+        .right-column{
+            width:70%;
+        }
+
+        .left-column h1{
+            font-size: 2.2rem;
+            text-align: center;
+        }
+
+        .left-column p{
+            font-size: 0.9rem;
+        }
     }

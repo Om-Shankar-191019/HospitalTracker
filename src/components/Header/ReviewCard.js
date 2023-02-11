@@ -7,7 +7,7 @@ const ReviewCard = forwardRef(({name,rating,review,date},ref) => {
   const user = useSelector((state) => state.login.user);
   return (
     <div ref={ref} className='reviewCard-container'>
-        <div style={{display:'flex',justifyContent:'space-between', alignItems:'center'}}>
+        <div className='rating-wrapper' >
           <div className='top-review-box'>
                 
                 {/* <img src="https://www.w3schools.com/howto/img_avatar.png" alt='' /> */}

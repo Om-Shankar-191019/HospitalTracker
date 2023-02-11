@@ -19,7 +19,14 @@
     cursor: pointer;
     color:white;
     padding:6px;
+    z-index:100;
     /* font-size: 130px; */
     transition:all 0.3s ease;
     animation:animateDown infinite 1.5s;
+}
+
+@media screen and (max-width:768px) {
+    .add-blog-plus{
+      right:6%;
+    }
 }

@@ -28,6 +28,11 @@
     border-radius: 50%;
 }
 
+.rating-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .reviewCard-name-box{
    margin-left:8px;
 }
@@ -42,4 +47,25 @@
 .below-review-box p{
     color:rgb(107, 105, 105);
     font-size: 14px;
+}
+
+@media screen and (max-width:768px) {
+    .reviewCard-container{
+        width:80vw;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .reviewCard-container{
+        width:70vw;
+    }
+    .rating-wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .below-review-box{
+        margin-top:14px;
+    }
 }
