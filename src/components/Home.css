@@ -6,12 +6,12 @@
 @media screen and (max-width:768px) {
     .home-container{
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
         overflow: scroll;
-        width:80%;
-        height: 200vh;
+        width:75%;
+        height: 176vh;
         margin:0 auto;
     }
 }

@@ -11,7 +11,7 @@ const ReviewCard = forwardRef(({name,rating,review,date},ref) => {
           <div className='top-review-box'>
                 
                 {/* <img src="https://www.w3schools.com/howto/img_avatar.png" alt='' /> */}
-                <Avatar style={{cursor:'pointer'}} alt="me" src={user?.photoURL}>{user?.displayName[0].toUpperCase()}</Avatar>
+                <Avatar style={{cursor:'pointer',color:'white',backgroundColor:'rgb(63, 102, 184)',border:"1px solid rgb(63, 102, 184)"}} alt="me" >{name[0].toUpperCase()}</Avatar>
             <div className='reviewCard-name-box'>
                 <p>{name}</p>
                 <span>{date}</span>

@@ -4,6 +4,7 @@ import { db } from '../../firebase';
 import { uploadBytes,ref,getDownloadURL } from "firebase/storage";
 import { storage } from '../../firebase';
 import { useSelector } from 'react-redux';
+import { serverTimestamp } from 'firebase/firestore';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
@@ -64,7 +65,7 @@ const BlogPostModal = ({showBlogPostModal , handleClose }) => {
               blogText:blogText,
               title:blogTitle,
               image:`${shareImage && shareImage.name}${shareImage && getDateOnly()}`,
-              createdAt: getDateTime(),
+              createdAt: serverTimestamp(),
               date:getDateOnly(),
             });
             // console.log("Document written with ID: ", docRef.id);

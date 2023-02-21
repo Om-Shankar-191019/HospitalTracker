@@ -61,6 +61,7 @@ const Login = () => {
                 email:result.user.email,
                 uid:result.user.uid,
                 displayName:result.user.displayName,
+               
             }))
         }).catch((error) => {
             const errorCode = error.code;
@@ -137,7 +138,7 @@ const Login = () => {
                     : null
                 }
                 <div className='btn-container'>
-                    <button className='btns' type='submit' style={{marginTop:"24px",marginBottom:"10px" , backgroundColor:"blueviolet",color:'white'}}>
+                    <button className='btns' type='submit' style={{marginTop:"24px",marginBottom:"10px" , backgroundColor:"rgb(63, 102, 184)",color:'white'}}>
                         Submit
                     </button>
                 </div>

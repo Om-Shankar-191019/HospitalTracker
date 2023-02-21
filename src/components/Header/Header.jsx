@@ -2,8 +2,8 @@ import React,{useState,useEffect} from 'react'
 import Avatar from '@mui/material/Avatar';
 import { useSelector } from 'react-redux';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Drawer, IconButton } from '@mui/material';
+import Logout from '../Logout';
+import { Drawer } from '@mui/material';
 import './Header.css';
 import HeaderOption from './HeaderOption';
 import Sidebar from './Sidebar';
@@ -12,7 +12,11 @@ const Header = () => {
   const user = useSelector((state) => state.login.user);
   const isMobile = useMediaQuery('(max-width:600px)');
 
+
+  // console.log(user);
+
   const [active,setActive] = useState(true);
+  const [logoutFlag,setLogoutFlag] = useState(false);
   const [isDrawerOpen,setIsDrawerOpen] = useState(false);
 
   useEffect(() =>{
@@ -25,6 +29,10 @@ const Header = () => {
 
   const changeDrawerState = () =>{
     setIsDrawerOpen(false);
+  }
+
+  const handleLogout =() =>{
+    setLogoutFlag(!logoutFlag);
   }
   
   return (
@@ -43,7 +51,7 @@ const Header = () => {
             >
               <Sidebar onClick={changeDrawerState} />
             </Drawer>
-            <Avatar style={{cursor:'pointer'}} alt="me" src={user?.photoURL}>{user?.displayName[0].toUpperCase()}</Avatar>
+            <Avatar onClick={handleLogout} style={{cursor:'pointer',backgroundColor:'white',width: '35px', height: '35px'}} alt="me" src="https://cdn-icons-png.flaticon.com/128/3177/3177440.png" ></Avatar>
           </div>
          
           :
@@ -53,9 +61,11 @@ const Header = () => {
             <HeaderOption route="/tophospitals" title="Top Hospitals" />
             <HeaderOption route="/reviews" title="Reviews" />
             <HeaderOption route="/blog" title="Blogs" />
-            <Avatar style={{cursor:'pointer'}} alt="me" src={user?.photoURL}>{user?.displayName[0].toUpperCase()}</Avatar>
+            <Avatar onClick={handleLogout} style={{cursor:'pointer',backgroundColor:'white',width: '32px', height: '32px'}} alt="me" src="https://cdn-icons-png.flaticon.com/128/3177/3177440.png" ></Avatar>
           </div>
         }
+
+        {logoutFlag && <Logout /> }
        
     </div>
   )

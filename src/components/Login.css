@@ -97,8 +97,8 @@
 .asking-button{
     border:none;
     background-color: white;
-    border-bottom:2px solid blueviolet;
-    color:blueviolet;
+    border-bottom:2px solid var(--app-color);
+    color:var(--app-color);
     cursor:pointer;
     font-weight: bold;
 }

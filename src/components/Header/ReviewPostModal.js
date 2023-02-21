@@ -11,6 +11,7 @@ const ReviewPostModal = ({showReviewPostModal , handleClose }) => {
     const [reviewText,setReviewText] = useState("");
     // console.log(ratingValue)
     const user = useSelector((state) => state.login.user);
+ 
     const getDateTime = () =>{
         let today = new Date();
         let dateTime =  today.toLocaleString();
@@ -31,8 +32,9 @@ const ReviewPostModal = ({showReviewPostModal , handleClose }) => {
               email:user.email,
               rating:ratingValue,
               review:reviewText,
-              createdAt: getDateTime(),
+              createdAt: serverTimestamp(),
               date:getDateOnly(),
+              
             });
             // console.log("Document written with ID: ", docRef.id);
           } catch (e) {

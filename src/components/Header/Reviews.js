@@ -93,7 +93,7 @@ useEffect(() => {
         <ReviewPostModal showReviewPostModal={showReviewPostModal} handleClose={handleClose}  /> 
         <FlipMove>
           {reviews && reviews.length > 0 && reviews.map(({ name,rating,review,date},i) =>
-            <ReviewCard key={i} name={name} rating={rating} review={review} date={date}/> 
+            <ReviewCard key={i} name={name} rating={rating} review={review} date={date}  /> 
           )}
         </FlipMove>
         

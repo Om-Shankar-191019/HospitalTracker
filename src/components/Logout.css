@@ -1,0 +1,38 @@
+.logout-container{
+    position: absolute;
+    top: -100%;
+    right: 5%;
+    /* width: 20%;
+    height: 200px; */
+    background-color: white;
+    transform: translate3d(0,-5px,0);
+    box-shadow: 0 2rem 4rem 0 rgba(0,0,0,.7);
+    border-radius: 4px;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: slide-down 0.3s ease-out forwards;
+    
+}
+.logout-wrapper{
+    cursor:pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    /* margin-bottom: 12px; */
+}
+
+.logout-wrapper:hover{
+    color:var(--app-color);
+    font-size:1.2rem;
+
+}
+
+@keyframes slide-down {
+    0% { top: -100%; }
+    100% { top: 58px; }
+  }
+
+@media screen and (max-width:600px) {
+    .logout-container{
+        right:10%;
+    }
+}

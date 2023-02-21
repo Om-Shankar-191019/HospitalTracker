@@ -1,9 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios';
 
-import { AddressAutofill } from '@mapbox/search-js-react';
 import SearchIcon from '@mui/icons-material/Search';
-import Map,{Marker} from 'react-map-gl';
+import Map,{Marker, GeolocateControl} from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -35,6 +34,7 @@ const Mapping = () => {
       })
     }
     else if( currentPin ){
+      setCurrentHospitals(null);
       setViewState({
         latitude: currentPin.lat,
         longitude: currentPin.lon,
@@ -196,14 +196,22 @@ const Mapping = () => {
             <input onKeyDown={getSearchData} className="search-input" type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}  placeholder='search...'  />
          
         </div>
-        <Marker longitude={78.014} latitude={21.780} color="red" />
+        <Marker longitude={78.014} latitude={21.780} color="rgb(24, 181, 39,0.4)" />
         {currentPin &&
            <Marker longitude={currentPin.lon} latitude={currentPin.lat} color="red" /> 
         }
-        {/* {currentHospitals && <Marker longitude={currentHospitals[0].lon} latitude={currentHospitals[0].lat} color="red" />}
-        {currentHospitals && <Marker longitude={currentHospitals[1].lon} latitude={currentHospitals[1].lat} color="red" />}
-        {currentHospitals && <Marker longitude={currentHospitals[2].lon} latitude={currentHospitals[2].lat} color="red" />}
-        {currentHospitals && <Marker longitude={currentHospitals[3].lon} latitude={currentHospitals[3].lat} color="red" />} */}
+
+        <GeolocateControl position='top-left' trackUserLocation enableHighAccuracy={true}  />
+
+        {currentHospitals && 
+          currentHospitals.map((item) => 
+          {if(item.lat && item.lon){
+            return <Marker key={item.id} longitude={parseFloat(item.lon)} latitude={ parseFloat(item.lat)} color="rgb(63, 102, 184,0.78)" />
+            }
+          }
+        ) 
+        } 
+
       </Map>  
     </div>
   );
